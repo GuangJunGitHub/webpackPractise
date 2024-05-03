@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {memo} from 'react';
 
-export const Button = () => {
-  return (
-    <Button>
-    test
-    </Button>
-  )
+interface ButtonProps {
+  onClick: () => void;
+  children: React.ReactNode
 }
+
+export const Button: React.FC<ButtonProps> = memo(({onClick, children}) => {
+
+  return (
+    <button onClick={onClick}>
+    {children}
+    </button>
+  )
+})
